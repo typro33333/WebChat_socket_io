@@ -10,6 +10,9 @@ body{
 .border-test{
   border: 1px solid black;
 }
+.space-64{
+  height: 64px;
+}
 /* Screen login */
   .background-login{
     width: 100%;
@@ -41,6 +44,7 @@ body{
       text-decoration: none;
       list-style-type: none;
       justify-content: flex-end;
+      padding-right: 64px;
     }
     .container-nav .flex-nav .align-nav li{
       padding: 24px 32px 24px;
@@ -108,6 +112,28 @@ body{
     .form-login .grid-form .new-room .input-new-room{ 
       padding: 1em;
     }
-
-
 /* Screen Login */
+
+/* Screen Chat */
+
+
+
+/* End Screen Chat */
+.container-chat{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.container-chat .container-title{
+  width:80%;
+  height: 70px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+.container-chat .border-chat{
+  display: grid;
+  width: 80%;
+  grid-template-columns: 20% 80%;
+  height: 600px;
+}

@@ -8,13 +8,11 @@ export default function Navigation(props){
             <div className="container-nav">
                 <div className="flex-nav">
                     <div className="logo">
-                        <img alt='logo' src={logo}/>
+                        <img alt='logo' src={logo} style ={{cursor:'pointer'}}/>
                     </div>
                     <div className="align-nav">
-                        <li><Link href="/login">Login</Link></li>
-                        <li><Link href="#home">Home</Link></li>
-                        <li><Link to="/chat">Chat</Link></li>
-                        <li><Link href="#contact">Contact</Link></li>
+                        <li><Link to="/login">Change Room</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
                     </div>
                 </div>
             </div>

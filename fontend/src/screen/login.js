@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigation from '../component/nav/nav';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -16,6 +15,8 @@ class Login extends React.Component{
             name:'',
             name_room:'',
             key:'',
+            namejoin:'',
+            keyjoin:''
         }
     }
 
@@ -26,32 +27,46 @@ class Login extends React.Component{
     _onInputname = async(event) => {
         await this.setState({name:event.target.value})
     }
-
     _onInputRoom = async(event) =>{
         await this.setState({name_room:event.target.value})
     }
     _onInputKey = async(event) =>{
         await this.setState({key:event.target.value})
     }
-
-
+    _onInputnameJoin = async(event) => {
+        await this.setState({namejoin:event.target.value})
+    }
+    _onInputKeyJoin = async(event) =>{
+        await this.setState({keyjoin:event.target.value})
+    }
+    _GotoChat = async() => {
+        let {namejoin,keyjoin} = this.state;
+        let string = '/chat/'+namejoin+'/'+keyjoin
+        this.props.history.push(string)
+    }
     render(){
-        let {name,name_room} = this.state;
+        console.log(this.state)
+        let {name,name_room,namejoin,keyjoin} = this.state;
         const btn_create_room = () =>{
             if(name === '' || name_room === ''){
                 return true
             }
             return false
         }
+        const btn_join_room = () => {
+            if(namejoin === '' || keyjoin === ''){
+                return true
+            }
+            return false
+        }
         return(
             <div className="background-login">
-                <Navigation />
                 <div className="form-login">
                     <div className="container-form">
                         <div className="title-form">Chat With Your Friends</div>
                         <div className="grid-form">
                             <div className="new-room">
-                                <h4 style={{fontSize:'500',textAlign:'center',padding:'18px'}}>Create New Room</h4>
+                                <h4 style={{fontSize:'500',textAlign:'center',padding:'18px'}}>Fast New Room</h4>
                                 <div className="input-new-room" >
                                     <div style={{padding:'18px'}}>
                                         <TextField
@@ -112,7 +127,8 @@ class Login extends React.Component{
                                 <h4 style={{fontSize:'500',textAlign:'center',padding:'18px'}}>Join Room</h4>
                                 <div className="input-new-room" >
                                     <div style={{padding:'18px'}}>
-                                        <TextField 
+                                        <TextField
+                                        onChange = {this._onInputnameJoin}
                                         label="Your Name"
                                         placeholder=" Enter Your Name"
                                         style={{width:'100%'}}
@@ -125,7 +141,8 @@ class Login extends React.Component{
                                         }}/>
                                     </div>
                                     <div style={{padding:'18px'}}>
-                                        <TextField 
+                                        <TextField
+                                        onChange={this._onInputKeyJoin}
                                         label="Key (*require)"
                                         placeholder=" Key room" 
                                         style={{width:'100%'}}
@@ -138,7 +155,9 @@ class Login extends React.Component{
                                         }}/>
                                     </div>
                                     <div style={{padding:'26px 18px 0px 18px'}}>
-                                        <Button 
+                                        <Button
+                                        disabled={btn_join_room()}
+                                        onClick={this._GotoChat}
                                         variant="contained" 
                                         color="primary" 
                                         style={{width:'100%',height:'44px'}}
