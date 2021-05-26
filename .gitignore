@@ -1,7 +1,9 @@
 /backend/node_modules
 /fontend/node_modules
+/fontend/build
 /fontend/.gitignore
 /fontend/.git
+/fontend/package-lock.json
 
 .DS_Store
 .env.local

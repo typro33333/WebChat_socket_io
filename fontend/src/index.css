@@ -17,7 +17,7 @@ body{
   }
     /* Navigation */
     .container-nav{
-      height: 90px;
+      height: 80px;
       width: 100%;
       position: sticky;
       top: 0;
@@ -41,6 +41,7 @@ body{
       text-decoration: none;
       list-style-type: none;
       justify-content: flex-end;
+      padding-right: 64px;
     }
     .container-nav .flex-nav .align-nav li{
       padding: 24px 32px 24px;
